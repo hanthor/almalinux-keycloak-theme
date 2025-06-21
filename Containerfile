@@ -7,7 +7,9 @@ FROM quay.io/keycloak/keycloak:latest
 # Change these for any production-like environment.
 ENV KC_BOOTSTRAP_ADMIN_USERNAME=admin
 ENV KC_BOOTSTRAP_ADMIN_PASSWORD=admin
-ENV KC_FEATURES=preview,quick-theme
+
+# Set the theme to be used by Keycloak.
+ENV KC_THEME=your-theme-name
 
 # The user's local themes are expected to be in a 'themes' directory
 # next to this Containerfile. This command copies them into the
