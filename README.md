@@ -15,13 +15,13 @@ To install this theme, follow these steps:
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/almalinux-keycloak-theme.git
+    git clone https://github.com/hanthor/almalinux-keycloak-theme.git
     ```
 
 2.  **Copy the theme to Keycloak:**
     Navigate to your Keycloak installation directory (e.g., `/opt/keycloak`) and copy the `almalinux` theme folders into the `themes` directory.
     ```bash
-    cp -r almalinux-keycloak-theme/themes/almalinux-{dark,light} /opt/keycloak/themes/
+    cp -r almalinux-keycloak-theme/themes/almalinux /opt/keycloak/themes/
     ```
 
 3.  **Configure Keycloak to use the theme:**
@@ -35,8 +35,6 @@ To install this theme, follow these steps:
         *   `Email Theme` (optional)
 
 4.  **Save** the changes.
-
-5.  **Restart Keycloak** for the changes to take effect.
 
 ## Development
 

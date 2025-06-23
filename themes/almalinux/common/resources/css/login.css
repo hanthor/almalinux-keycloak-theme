@@ -1,0 +1,154 @@
+.pf-v5-c-login__container {
+  grid-template-columns: 34rem;
+  grid-template-areas: "header"
+    "main"
+}
+
+.login-pf body {
+  background: var(--keycloak-bg-logo-url) no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+}
+
+div.kc-logo-text {
+  background-image: var(--keycloak-logo-url);
+  height: var(--keycloak-logo-height);
+  width: var(--keycloak-logo-width);
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 0 auto;
+}
+
+div.kc-logo-text span {
+  display: none;
+}
+
+.kc-login-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.kc-login-tooltip .kc-tooltip-text {
+  top: -3px;
+  left: 160%;
+  background-color: black;
+  visibility: hidden;
+  color: #fff;
+
+  min-width: 130px;
+  text-align: center;
+  border-radius: 2px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+  padding: 5px;
+
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+/* Show tooltip */
+.kc-login-tooltip:hover .kc-tooltip-text {
+  visibility: visible;
+  opacity: 0.7;
+}
+
+/* Arrow for tooltip */
+.kc-login-tooltip .kc-tooltip-text::after {
+  content: " ";
+  position: absolute;
+  top: 15px;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
+}
+
+#kc-recovery-codes-list {
+  columns: 2;
+}
+
+#certificate_subjectDN {
+  overflow-wrap: break-word
+}
+
+#kc-header-wrapper {
+  font-size: 29px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  line-height: 1.2em;
+  white-space: normal;
+  color: var(--pf-v5-global--Color--light-100) !important;
+  text-align: center;
+}
+
+hr {
+  margin-top: var(--pf-v5-global--spacer--sm);
+  margin-bottom: var(--pf-v5-global--spacer--md);
+}
+
+@media (min-width: 768px) {
+  div.pf-v5-c-login__main-header {
+    grid-template-columns: 70% 30%;
+  }
+}
+
+/*
+ * =================================================================================
+ * Primary Button Style for .pf-v5-c-button.pf-m-primary
+ * =================================================================================
+ */
+
+/* --- Variable Definitions --- */
+/* Define your primary colors here for easy customization */
+:root {
+  --btn-primary-bg: #0066cc; /* The main blue background */
+  --btn-primary-text: #ffffff; /* White text for contrast */
+  --btn-primary-bg-hover: #004a99; /* A darker blue for hover */
+  --btn-primary-bg-active: #003366; /* An even darker blue for active/click state */
+  --btn-primary-focus-shadow: rgba(0, 102, 204, .5); /* A semi-transparent blue for the focus "glow" */
+}
+
+
+.pf-v5-c-button.pf-m-primary {
+  color: var(--btn-primary-text);
+  background-color: var(--btn-primary-bg);
+  border-color: var(--btn-primary-bg);
+  font-weight: 600; /* Makes the text slightly bolder */
+  padding: 0.5rem 1.25rem; /* A comfortable padding */
+  border-radius: 0.3rem; /* A subtle rounding of corners */
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07); /* A subtle shadow for depth */
+  transform: translateY(0); /* Set initial position for hover effect */
+}
+
+.pf-v5-c-button.pf-m-primary:hover {
+  background-color: var(--btn-primary-bg-hover);
+  border-color: var(--btn-primary-bg-hover);
+  color: var(--btn-primary-text);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Increases shadow for a "lifted" effect */
+}
+
+.pf-v5-c-button.pf-m-primary:focus {
+  background-color: var(--btn-primary-bg-hover); /* Use hover color on focus */
+  outline: none; /* Remove the default browser outline */
+  box-shadow: 0 0 0 0.2rem var(--btn-primary-focus-shadow);
+}
+
+
+.pf-v5-c-button.pf-m-primary:active {
+  background-color: var(--btn-primary-bg-active);
+  border-color: var(--btn-primary-bg-active);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Reduces shadow to look "pressed" */
+}
+
+
+.pf-v5-c-button.pf-m-primary:disabled,
+.pf-v5-c-button.pf-m-primary.pf-m-disabled {
+  background-color: var(--btn-primary-bg);
+  border-color: var(--btn-primary-bg);
+  opacity: 0.65; /* Makes the button look faded */
+  cursor: not-allowed; /* Shows the user they cannot click it */
+  transform: none;
+  box-shadow: none;
+}

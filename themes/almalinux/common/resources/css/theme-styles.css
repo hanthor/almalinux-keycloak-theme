@@ -1,5 +1,5 @@
 :root {
-        --keycloak-bg-logo-url: url('../img/bgimage.jpg');
+        --keycloak-bg-logo-url: url('../img/bgimage_light.jpg');
         --keycloak-logo-url: url('../img/logowordmark.svg');
         --keycloak-logo-height: 63px;
         --keycloak-logo-width: 300px;
@@ -17,6 +17,7 @@
 --pf-v5-global--Color--dark-100: #151515;
       }
       .pf-v5-theme-dark {
+        --keycloak-bg-logo-url: url('../img/bgimage_dark.jpg');
         --pf-v5-global--FontFamily--text: "RedHatText", helvetica, arial, sans-serif;
 --pf-v5-global--danger-color--100: #fe5142;
 --pf-v5-global--success-color--100: #5ba352;
