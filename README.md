@@ -1,3 +1,6 @@
+![image](https://github.com/user-attachments/assets/6caa208e-cc33-49d4-8c9a-2a7da7f281db)
+
+
 # AlmaLinux Keycloak Theme
 
 This repository contains a custom theme for Keycloak, designed to align with the AlmaLinux branding.
