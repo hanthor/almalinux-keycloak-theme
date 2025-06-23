@@ -1,0 +1,6 @@
+{
+  "themes": [{
+      "name" : "almalinux",
+      "types": [ "login", "account", "admin", "common" ]
+  }]
+}

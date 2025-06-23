@@ -1,0 +1,39 @@
+name: Build Keycloak Theme JAR
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-theme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Prepare Staging Directory
+        run: |
+          mkdir -p build/
+          cp -r themes/almalinux/ build/
+          mv build/almalinux/META-INF/ build/META-INF/
+
+      - name: Create JAR File
+        run: |
+          cd build
+          JAR_NAME="almalinux-theme.jar"
+          jar -cvf ../${JAR_NAME} .
+          cd ..
+
+      - name: Upload Theme JAR as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: keycloak-theme-jar
+          path: almalinux-theme.jar
