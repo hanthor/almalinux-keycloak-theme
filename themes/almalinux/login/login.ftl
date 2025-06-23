@@ -1,6 +1,6 @@
 <#--
     This template is for Keycloak 26.2 and includes a custom JavaScript function
-    `concatenatePassword()` that combines the password and OTP (One-Time Password)
+    `concatenatePassword()` that combines the password and OTP
     fields into a single password field before form submission. This is used
     to handle scenarios where the OTP is appended to the password for authentication.
 -->
@@ -49,7 +49,6 @@
                 var passwordField = document.getElementById('password');
                 var otpField = document.getElementById('otp');
 
-                // Check if both fields exist and have values
                 if (passwordField && otpField && passwordField.value && otpField.value) {
                     // Concatenate password and OTP
                     passwordField.value = passwordField.value + otpField.value;
