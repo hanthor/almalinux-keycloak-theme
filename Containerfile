@@ -6,6 +6,7 @@ FROM quay.io/keycloak/keycloak:26.2
 ENV KC_BOOTSTRAP_ADMIN_USERNAME=admin
 ENV KC_BOOTSTRAP_ADMIN_PASSWORD=admin
 
+
 # The user's local themes are expected to be in a 'themes' directory
 # next to this Containerfile. This command copies them into the
 # correct location within the Keycloak container.
