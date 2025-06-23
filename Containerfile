@@ -1,15 +1,12 @@
 # Use a specific version of the official Keycloak image for consistency.
 # You can find other versions on Quay.io: https://quay.io/repository/keycloak/keycloak
-FROM quay.io/keycloak/keycloak:latest
+FROM quay.io/keycloak/keycloak:26.2
 
 # Set environment variables for the initial admin user.
 # IMPORTANT: Use these credentials for development only.
 # Change these for any production-like environment.
 ENV KC_BOOTSTRAP_ADMIN_USERNAME=admin
 ENV KC_BOOTSTRAP_ADMIN_PASSWORD=admin
-
-# Set the theme to be used by Keycloak.
-ENV KC_THEME=your-theme-name
 
 # The user's local themes are expected to be in a 'themes' directory
 # next to this Containerfile. This command copies them into the

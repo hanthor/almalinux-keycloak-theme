@@ -42,7 +42,6 @@ To install this theme, follow these steps:
 
     ```bash
     podman build . -t kctheme
-    podman unshare chown -R 1000:1000 ./themes
     podman run -p 8080:8080 -v ./themes:/opt/keycloak/themes:z kctheme
     
     ```
