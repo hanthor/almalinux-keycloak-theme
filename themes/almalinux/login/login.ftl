@@ -41,19 +41,20 @@
                         </@field.password>
                     </#if>
 
-                    <#--
-                        The OTP field is disabled by default. We assume the 'field.ftl' macro can take an 'other_attributes' parameter.
-                        If this does not work, you should replace this macro with the raw HTML below to ensure the field is disabled.
-                    -->
-                    <@field.input name="otp" label=msg("loginAccountOtp") autocomplete="off" other_attributes='disabled="disabled"' />
 
-                    <#--
-                        If the macro above doesn't work, comment it out and use this raw HTML instead.
-                        <div class="form-group">
-                            <label for="otp" class="control-label">${msg("loginAccountOtp")}</label>
-                            <input id="otp" name="otp" type="text" class="form-control" autocomplete="off" disabled />
+                        <div class="pf-v5-c-form__group">
+                        <div class="pf-v5-c-form__group-label pf-v5-u-pb-xs">
+                            <label for="otp" class="pf-v5-c-form__label">
+                                <span class="pf-v5-c-form__label-text">${msg("loginAccountOtp")}</span>
+                            </label>
                         </div>
-                    -->
+                        <span class="pf-v5-c-form-control">
+                            <input id="otp" name="otp" type="text" autocomplete="off" disabled />
+                        </span>
+                        <div id="input-error-container-otp">
+                        </div>
+                    </div>
+
 
                     <#-- This notice will ONLY be displayed to users with JavaScript disabled. -->
                     <noscript>
