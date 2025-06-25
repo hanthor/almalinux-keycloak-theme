@@ -3,6 +3,11 @@
     `concatenatePassword()` that combines the password and OTP
     fields into a single password field before form submission. This is used
     to handle scenarios where the OTP is appended to the password for authentication.
+
+    This modified version disables the OTP field by default and provides a <noscript>
+    notice for users without JavaScript, instructing them to append the OTP to the password.
+    If JavaScript is enabled, a script will enable the OTP field and the concatenation
+    will happen automatically.
 -->
 
 <#import "template.ftl" as layout>
@@ -36,7 +41,27 @@
                         </@field.password>
                     </#if>
 
-                    <@field.input name="otp" label=msg("loginAccountOtp") autocomplete="off" />
+                    <#--
+                        The OTP field is disabled by default. We assume the 'field.ftl' macro can take an 'other_attributes' parameter.
+                        If this does not work, you should replace this macro with the raw HTML below to ensure the field is disabled.
+                    -->
+                    <@field.input name="otp" label=msg("loginAccountOtp") autocomplete="off" other_attributes='disabled="disabled"' />
+
+                    <#--
+                        If the macro above doesn't work, comment it out and use this raw HTML instead.
+                        <div class="form-group">
+                            <label for="otp" class="control-label">${msg("loginAccountOtp")}</label>
+                            <input id="otp" name="otp" type="text" class="form-control" autocomplete="off" disabled />
+                        </div>
+                    -->
+
+                    <#-- This notice will ONLY be displayed to users with JavaScript disabled. -->
+                    <noscript>
+                        <div class="alert alert-warning" role="alert">
+                          <span>JavaScript is disabled. Please append the OTP directly to your password in the password field.</span>
+                        </div>
+                    </noscript>
+
                     <input type="hidden" id="id-hidden-input" name="credentialId" <#if auth.selectedCredential?has_content>value="${auth.selectedCredential}"</#if>/>
                     <@buttons.loginButton />
                 </form>
@@ -45,20 +70,25 @@
         </div>
 
         <script>
+            // This script runs only if JavaScript is enabled.
+            // It immediately enables the OTP field, overriding the 'disabled' default state from the HTML.
+            document.getElementById('otp').disabled = false;
+
             function concatenatePassword() {
                 var passwordField = document.getElementById('password');
                 var otpField = document.getElementById('otp');
 
+                // Proceed only if both fields have values
                 if (passwordField && otpField && passwordField.value && otpField.value) {
                     // Concatenate password and OTP
                     passwordField.value = passwordField.value + otpField.value;
 
-                    // Disable the OTP field so it doesn't get submitted as a separate parameter
+                    // Disable the OTP field right before submission so it isn't sent as a separate parameter
                     otpField.disabled = true;
                 }
             }
         </script>
-        <#elseif section = "socialProviders" >
+    <#elseif section = "socialProviders" >
         <#if realm.password && social.providers?? && social.providers?has_content>
             <@identityProviders.show social=social/>
         </#if>
